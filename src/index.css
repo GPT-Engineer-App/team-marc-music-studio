@@ -97,3 +97,8 @@
 .transition-background {
   transition: background-image 1s ease-in-out;
 }
+
+@keyframes beat {
+  0%, 100% { transform: perspective(500px) rotateX(20deg) scale(1); }
+  50% { transform: perspective(500px) rotateX(20deg) scale(1.1); }
+}
