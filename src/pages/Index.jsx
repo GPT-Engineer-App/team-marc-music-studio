@@ -1,5 +1,6 @@
-import { Package2, Play, Pause, SkipBack, SkipForward } from "lucide-react";
+import { Package2, Play, Pause, SkipBack, SkipForward, Home, PlusCircle, Library, Compass } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
 
 const Index = () => {
   return (
@@ -43,14 +44,35 @@ const Index = () => {
 
         {/* Progress Bar */}
         <div className="mb-8">
-          {/* Placeholder for progress bar */}
+          <div className="flex justify-between text-sm mb-2">
+            <span>0:00</span>
+            <span>3:30</span>
+          </div>
+          <Slider defaultValue={[33]} max={100} step={1} />
         </div>
       </main>
 
       {/* Footer */}
       <footer className="bg-background border-t">
         <div className="container mx-auto px-4 py-4">
-          {/* Placeholder for footer navigation */}
+          <nav className="flex justify-around">
+            <Button variant="ghost" className="flex flex-col items-center">
+              <Home className="h-6 w-6 mb-1" />
+              <span className="text-xs">Home</span>
+            </Button>
+            <Button variant="ghost" className="flex flex-col items-center">
+              <PlusCircle className="h-6 w-6 mb-1" />
+              <span className="text-xs">Create</span>
+            </Button>
+            <Button variant="ghost" className="flex flex-col items-center">
+              <Library className="h-6 w-6 mb-1" />
+              <span className="text-xs">Library</span>
+            </Button>
+            <Button variant="ghost" className="flex flex-col items-center">
+              <Compass className="h-6 w-6 mb-1" />
+              <span className="text-xs">Explore</span>
+            </Button>
+          </nav>
         </div>
       </footer>
     </div>
