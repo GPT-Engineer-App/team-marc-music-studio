@@ -32,7 +32,7 @@ const Index = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-black to-gray-900">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-purple-900 via-blue-900 to-purple-600">
       {/* Header */}
       <header className="flex items-center justify-between p-4 border-b border-white/10">
         <Button variant="ghost" size="icon" className="text-white">
