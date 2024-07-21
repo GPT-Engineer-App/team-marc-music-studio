@@ -19,6 +19,8 @@ const Index = () => {
         setCurrentImage(data.urls.regular);
       } catch (error) {
         console.error("Error fetching background image:", error);
+        // Set a default background image in case of an error
+        setCurrentImage("https://source.unsplash.com/random?music");
       }
     };
 
@@ -43,7 +45,10 @@ const Index = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-cover bg-center transition-all duration-1000 ease-in-out" style={{ backgroundImage: `url(${currentImage})` }}>
+    <div 
+      className="flex flex-col min-h-screen bg-cover bg-center transition-all duration-1000 ease-in-out animate-fadeIn"
+      style={{ backgroundImage: `url(${currentImage})` }}
+    >
       {/* Header */}
       <header className="bg-background/80 backdrop-blur-md border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-center">
@@ -55,14 +60,14 @@ const Index = () => {
       {/* Main content */}
       <main className="flex-grow container mx-auto px-4 py-8 flex flex-col items-center justify-center">
         {/* Current Playing Song Section */}
-        <div className="mb-8 text-center bg-background/60 backdrop-blur-md p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+        <div className="mb-8 text-center bg-background/60 backdrop-blur-md p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 animate-slideIn">
           <h2 className="text-2xl font-semibold mb-2">Now Playing</h2>
           <p className="text-xl">Song Title</p>
           <p className="text-lg text-muted-foreground">Artist Name</p>
         </div>
 
         {/* Playback Controls */}
-        <div className="mb-8 flex items-center space-x-4">
+        <div className="mb-8 flex items-center space-x-4 animate-slideIn" style={{animationDelay: "0.2s"}}>
           <Button variant="outline" size="icon" className="rounded-full">
             <SkipBack className="h-6 w-6" />
           </Button>
@@ -75,7 +80,7 @@ const Index = () => {
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full max-w-md mb-8">
+        <div className="w-full max-w-md mb-8 animate-slideIn" style={{animationDelay: "0.4s"}}>
           <Progress value={progress} className="w-full" />
           <div className="flex justify-between mt-2 text-sm text-muted-foreground">
             <span>0:00</span>
@@ -84,7 +89,7 @@ const Index = () => {
         </div>
 
         {/* Volume Slider */}
-        <div className="w-full max-w-xs">
+        <div className="w-full max-w-xs animate-slideIn" style={{animationDelay: "0.6s"}}>
           <Slider defaultValue={[50]} max={100} step={1} className="w-full" />
         </div>
       </main>
